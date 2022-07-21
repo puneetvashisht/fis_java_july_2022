@@ -12,15 +12,20 @@ public class Employee {
 		return "Id: " + this.id + "Name: " + this.name + "salary: " + this.salary;
 	}
 	public void incrementSalary(int amount) {
-		this.salary = this.salary + amount;
+//		double factor ;
+		
+		/*
+		 * if(amount > 5000) { factor = 1.2; } this.salary = this.salary + (amount *
+		 * factor);
+		 */
 	}
 	
 	public static void main(String[] args) {
 		// objects
 		Employee employee = new Employee();
-		employee.id = 456767;
-		employee.name = "Priya";
-		employee.salary = 10000;
+//		employee.id = 456767;
+//		employee.name = new String("Priya");
+//		employee.salary = 10000;
 		System.out.println(employee.getInfo());
 		
 		employee.incrementSalary(5000);
