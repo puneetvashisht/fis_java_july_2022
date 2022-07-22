@@ -1,10 +1,18 @@
 package com.fis.day02;
 
-public abstract class Employee {
+public abstract class Employee implements Insurance {
 	
 	int id;
 	String name;
 	double salary;
+	static final String companyName = "FIS";
+	
+	
+	public static String getCompanyName() {
+//		System.out.println(name);
+//		applyLeave()
+		return companyName;
+	}
 	
 	public Employee(int id, String name, double salary) {
 		super();
@@ -16,6 +24,12 @@ public abstract class Employee {
 	// definations
 	public void applyLeave() {
 		System.out.println("Apply leave");
+	}
+	
+	@Override
+	public final void claim() {
+		System.out.println("Make claim process");
+		
 	}
 	
 	//declarations

@@ -17,6 +17,14 @@ public class ContractEmployee extends Employee {
 	public String toString() {
 		return "ContractEmployee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
 	}
+
+	@Override
+	public void payPremium() {
+		System.out.println("Contractuals Pay Premium");
+		
+	}
+
+	
 	
 	
 

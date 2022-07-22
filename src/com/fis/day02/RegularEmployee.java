@@ -34,6 +34,13 @@ public class RegularEmployee extends Employee implements Perks {
 		
 	}
 
+	@Override
+	public void payPremium() {
+		System.out.println("Regulars Pay Premium");
+		
+	}
+	
+
 	
 
 	
