@@ -5,7 +5,19 @@ public class Employee {
 
 	int id;
 	String name;
-	double salary;
+	private double salary;
+	
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		if(salary > 0) {
+			this.salary = salary;
+		}
+		
+	}
+
 	Address address;
 
 	public Employee(int id, String name, double salary, Address address) {
