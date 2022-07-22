@@ -30,7 +30,7 @@ public class Plane extends Vehicle{
 	
 	@Override
 	public void speedUp() {	
-		super.speedUp();
+//		super.speedUp();
 		System.out.println("Speed up + 50");
 	}
 	
