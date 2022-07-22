@@ -26,7 +26,7 @@ public class Vehicle extends Object {
 	}
 
 	public void speedUp() {	
-		System.out.println("Speed up + 5");
+		System.out.println("Speed up + 5" + this.maxSpeed);
 	}
 
 	public void brakeDown() {
