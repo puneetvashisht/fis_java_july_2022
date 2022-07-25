@@ -2,6 +2,7 @@ package com.fis.day03;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortDemo2 {
@@ -23,6 +24,17 @@ public class SortDemo2 {
 		System.out.println(employees);
 		
 		Collections.sort(employees, new SalaryComparator());
+		
+		System.out.println(employees);
+		
+		//using anonymous class syntax
+		Collections.sort(employees, new Comparator<Employee>() {
+			@Override
+			public int compare(Employee o1, Employee o2) {
+				return o1.name.compareTo(o2.name);
+			}
+			
+		});
 		
 		System.out.println(employees);
 		
