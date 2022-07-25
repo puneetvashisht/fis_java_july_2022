@@ -43,8 +43,50 @@ public class TestBank {
 		Bank bank = bankMap.get(bankName);
 		return bank.getBranches();
 	}
+	
+	public static List<Atm> findBankAtms(String bankName){
+		Bank bank = bankMap.get(bankName);
+		return bank.getAtms();
+	}
 	// all operationa atms of a bank
+	public static List<Atm> findOperationalBankAtms(String bankName){
+		Bank bank = bankMap.get(bankName);
+		List<Atm> atms = bank.getAtms();
+		
+		List<Atm> operationalAtms = new ArrayList<>();
+		for(Atm atm: atms) {
+			if(atm.isOperational) {
+				operationalAtms.add(atm);
+			}
+		}
+		return operationalAtms;
+	}
+	
 	// all branches of bank starting with "delhi"
+	
+	public static List<Branch> findBranchesWithCity(String bankName, String cityName){
+		Bank bank = bankMap.get(bankName);
+		List<Branch> branches = bank.getBranches();
+		
+		List<Branch> matchingBranches = new ArrayList<>();
+		for(Branch branch: branches) {
+			if(branch.getCity().startsWith(cityName)) {
+				matchingBranches.add(branch);
+			}
+		}
+		return matchingBranches;
+	}
 	// which atms can disp amount exeeding a certian range
-
+	public static List<Atm> findBankAtmsExceedingRange(String bankName,long range){
+		Bank bank = bankMap.get(bankName);
+		List<Atm> atms = bank.getAtms();
+		
+		List<Atm> operationalAtms = new ArrayList<>();
+		for(Atm atm: atms) {
+			if(atm.cashCapacity > range) {
+				operationalAtms.add(atm);
+			}
+		}
+		return operationalAtms;
+	}
 }
