@@ -1,6 +1,6 @@
 package com.fis.day04.lamdas;
 
-
+import java.util.Objects;
 
 public class Employee implements Comparable<Employee>{
 
@@ -46,7 +46,26 @@ public class Employee implements Comparable<Employee>{
 	public void incrementSalary(int amount) {
 
 	}
+	
+	
 
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return id == other.id;
+	}
 
 	@Override
 	public int compareTo(Employee o) {	
