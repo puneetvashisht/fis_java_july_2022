@@ -2,11 +2,13 @@ package com.fis.day04.lamdas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
-@FunctionalInterface
-interface Condition{
-	boolean test(Employee e);
-}
+//@FunctionalInterface
+//interface Condition{
+//	boolean test(Employee e);
+//}
 
 
 
@@ -14,10 +16,11 @@ public class TestEmployeeBeforeJava8 {
 	
 	static List<Employee> employees = new ArrayList<>();
 	
-	static void printEmployees(Condition condition){
+	static void printEmployees(Predicate<Employee> predicate, Consumer<Employee> consumer){
 		for(Employee e : employees) {
-			if(condition.test(e)) {
-				System.out.println(e);
+			if(predicate.test(e)) {
+//				System.out.println(e);
+				consumer.accept(e);
 			}	
 		}
 	}
@@ -59,7 +62,7 @@ public class TestEmployeeBeforeJava8 {
 //				return true;
 //			}	
 //		});
-		printEmployees((e)-> true);
+		printEmployees((e)-> true, (e)-> System.out.println(e));
 		
 		System.out.println(" -- ---- - -- print all the employees with name start with letter 'P'-- - - - - - - -");
 		
@@ -69,26 +72,27 @@ public class TestEmployeeBeforeJava8 {
 //				return e.name.startsWith("P");
 //			}	
 //		});
-		printEmployees((e)-> e.name.startsWith("P"));
+		printEmployees((e)-> e.name.startsWith("P"), (e)-> System.out.println(e));
 		
 		System.out.println(" -- ---- - -print all employees with names ending with letter 't'- -- - - - - - - -");
 		
-		printEmployees(new Condition() {
-			@Override
-			public boolean test(Employee e) {
-				return e.name.endsWith("t");
-			}	
-		});
-		
+//		printEmployees(new Condition() {
+//			@Override
+//			public boolean test(Employee e) {
+//				return e.name.endsWith("t");
+//			}	
+//		});
+		printEmployees((e)-> e.name.endsWith("t"), (e)-> System.out.println(e));
 		
 		System.out.println(" -- ---- -print all employees having salaries greater than 200000 -- -- - - - - - - -");
 		
-		printEmployees(new Condition() {
-			@Override
-			public boolean test(Employee e) {
-				return e.getSalary() > 200000;
-			}	
-		});
+//		printEmployees(new Condition() {
+//			@Override
+//			public boolean test(Employee e) {
+//				return e.getSalary() > 200000;
+//			}	
+//		});
+		printEmployees((e)-> e.getSalary() > 200000, (e)-> System.out.println(e));
 		
 		
 //		printEmployeesWithStartingLetter("P");
