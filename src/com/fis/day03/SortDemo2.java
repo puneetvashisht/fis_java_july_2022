@@ -28,13 +28,16 @@ public class SortDemo2 {
 		System.out.println(employees);
 		
 		//using anonymous class syntax
-		sort(employees, new Comparator<Employee>() {
-			@Override
-			public int compare(Employee o1, Employee o2) {
-				return o1.name.compareTo(o2.name);
-			}
-			
-		});
+//		sort(employees, new Comparator<Employee>() {
+//			@Override
+//			public int compare(Employee o1, Employee o2) {
+//				return o1.name.compareTo(o2.name);
+//			}
+//			
+//		});
+		
+		Comparator<Employee> nameComparator = (o1, o2) -> o1.name.compareTo(o2.name);
+		sort(employees,  nameComparator ); 
 		
 		System.out.println(employees);
 		
