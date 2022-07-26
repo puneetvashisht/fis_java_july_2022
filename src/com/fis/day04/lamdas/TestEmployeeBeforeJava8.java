@@ -3,6 +3,9 @@ package com.fis.day04.lamdas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 
 public class TestEmployeeBeforeJava8 {
@@ -59,7 +62,11 @@ public class TestEmployeeBeforeJava8 {
 		.forEach((d)-> System.out.println(d));
 		
 		
+		Set<Employee> filteredEmployees = employees.stream()
+	    .filter(e -> e.name.startsWith("P"))
+	    .collect(Collectors.toCollection(TreeSet::new));
 		
+		System.out.println(filteredEmployees);
 		
 		
 //		.forEach((d)-> System.out.println(d));

@@ -62,7 +62,7 @@ public class TestEmployeeAfterJava8 {
 //				return true;
 //			}	
 //		});
-		printEmployees((e)-> true, (e)-> System.out.println(e));
+		printEmployees((e)-> true,  System.out::println);
 		
 		System.out.println(" -- ---- - -- print all the employees with name start with letter 'P'-- - - - - - - -");
 		
