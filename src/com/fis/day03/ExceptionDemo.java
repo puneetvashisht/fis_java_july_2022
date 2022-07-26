@@ -12,7 +12,7 @@ public class ExceptionDemo {
 
 	public static void main(String[] args) {
 //		try {
-			vote(14);
+//			vote(14);
 //		} catch (MyException e) {
 //			e.printStackTrace();
 //			System.out.println("Send person to jail");

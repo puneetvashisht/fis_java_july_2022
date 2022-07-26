@@ -1,13 +1,13 @@
 package com.fis.day03;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import static java.util.Collections.sort;
 import java.util.Comparator;
 import java.util.List;
 
 public class SortDemo2 {
 	
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		Employee employee1 = new Employee(4339, "Harshit", 100000);
 		Employee employee2 = new Employee(23, "Priya", 300000);
 		Employee employee3 = new Employee(433, "Ankit", 200000);
@@ -19,16 +19,16 @@ public class SortDemo2 {
 		
 		System.out.println(employees);
 		
-		Collections.sort(employees);
+		sort(employees);
 		
 		System.out.println(employees);
 		
-		Collections.sort(employees, new SalaryComparator());
+		sort(employees, new SalaryComparator());
 		
 		System.out.println(employees);
 		
 		//using anonymous class syntax
-		Collections.sort(employees, new Comparator<Employee>() {
+		sort(employees, new Comparator<Employee>() {
 			@Override
 			public int compare(Employee o1, Employee o2) {
 				return o1.name.compareTo(o2.name);
