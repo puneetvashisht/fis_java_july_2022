@@ -14,13 +14,13 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.fis.third_jaxrs.models.Employee;
-import com.fis.third_jaxrs.services.EmployeeJpaService;
+import com.fis.third_jaxrs.services.EmployeeJdbcService;
 import com.fis.third_jaxrs.services.IEmployeeService;
 
 @Path("/employees")
 public class EmployeeResource {
 	
-	IEmployeeService employeeService = new EmployeeJpaService();
+	IEmployeeService employeeService = new EmployeeJdbcService();
 	
 	@GET
 	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
