@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
  */
 @Path("/myresource")
 public class MyResource {
+	
     
     /** Method processing HTTP GET requests, producing "text/plain" MIME media
      * type.

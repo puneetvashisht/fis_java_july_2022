@@ -20,7 +20,7 @@ import com.fis.third_jaxrs.services.IEmployeeService;
 @Path("/employees")
 public class EmployeeResource {
 	
-	IEmployeeService employeeService = new EmployeeJpaService();
+	static IEmployeeService employeeService = new EmployeeJpaService();
 	
 	@GET
 	@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
