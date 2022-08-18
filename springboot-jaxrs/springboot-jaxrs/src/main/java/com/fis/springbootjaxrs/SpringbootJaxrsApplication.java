@@ -10,7 +10,7 @@ public class SpringbootJaxrsApplication {
 	
 	@Bean
 	ResourceConfig resourceConfig() {
-		return new ResourceConfig().register(CourseResource.class);
+		return new ResourceConfig().register(TestResource.class);
 	}
 
 	public static void main(String[] args) {

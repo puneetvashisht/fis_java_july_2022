@@ -12,6 +12,7 @@ public class Course {
 	int id;
 	String title;
 	double price;
+	
 	public Course() {
 		
 	}
