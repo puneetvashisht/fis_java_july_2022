@@ -34,12 +34,41 @@ public class PostResource {
 		postRepository.save(post);
 		return Response.status(Status.CREATED).build();
 	}
-	
+
 	@GET
 	public Response fetchAllPosts() {
 		List<Post> posts = postRepository.findAll();
 		return Response.ok(posts).build();
 	}
+	
+	@Path("{id}/comments")
+	@GET
+	public Response fetchAllCommentsForAPost(@PathParam("id") int id) {
+		Optional<Post> postFound = postRepository.findById(id);
+		if(postFound.isPresent()) {
+			Post post =  postFound.get();
+			List<Comment> comments = post.getComments();
+			System.out.println(comments);	
+			return Response.ok(comments).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+	
+	@Path("{id}/comments")
+	@POST
+	public Response addCommentForAPost(@PathParam("id") int id, Comment comment) {
+		Optional<Post> postFound = postRepository.findById(id);
+		if(postFound.isPresent()) {
+			Post post =  postFound.get();
+			List<Comment> comments = post.getComments();
+			comments.add(comment);
+			System.out.println(comments);	
+			postRepository.save(post);
+			return Response.ok(comments).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+	
 	@Path("{id}")
 	@GET
 	public Response fetchPostById(@PathParam("id") int id) {
