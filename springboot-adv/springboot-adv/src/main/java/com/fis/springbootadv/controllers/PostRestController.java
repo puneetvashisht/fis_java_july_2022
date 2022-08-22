@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,12 @@ public class PostRestController {
 		return new ResponseEntity<>(posts, HttpStatus.OK);
 	}
 	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deleteAPost(@PathVariable("id") int id) {
+		postRepository.deleteById(id);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	
 	@GetMapping("/{id}/comments")
 	public ResponseEntity<List<Comment>> fetchAllCommentsForAPost(@PathVariable("id") int id) {
@@ -63,6 +70,21 @@ public class PostRestController {
 			System.out.println(comments);	
 			postRepository.save(post);
 			 return new ResponseEntity<>(comments, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	
+	@DeleteMapping("/{id}/comments")
+	public ResponseEntity<Void> addCommentForAPost(@PathVariable("id") int id) {
+		Optional<Post> postFound = postRepository.findById(id);
+		if(postFound.isPresent()) {
+			Post post =  postFound.get();
+			List<Comment> comments = post.getComments();
+			post.setComments(null);
+			System.out.println(comments);	
+			postRepository.save(post);
+			 return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
